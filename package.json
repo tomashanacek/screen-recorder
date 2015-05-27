@@ -1,0 +1,32 @@
+{
+  "name": "screen-recorder",
+  "version": "1.0.0",
+  "description": "OS X screen recording library for Node",
+  "main": "index.js",
+  "author": "Tomas Hanacek <tomas.hanacek1@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "recording",
+    "osx"
+  ],
+  "dependencies": {
+    "nodobjc": "^2.0.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomashanacek/screen-recorder"
+  },
+  "bugs": {
+    "url": "https://github.com/tomashanacek/screen-recorder/issues"
+  },
+  "homepage": "https://github.com/tomashanacek/screen-recorder",
+  "scripts": {
+    "prepublish": "coffee -c index.coffee",
+    "postpublish": "rm index.js",
+    "test": "coffee test.coffee"
+  }
+}
