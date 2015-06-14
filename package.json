@@ -11,7 +11,7 @@
     "osx"
   ],
   "dependencies": {
-    "nodobjc": "^2.0.0"
+    "nodobjc": "sakisakira/NodObjC"
   },
   "devDependencies": {
     "coffee-script": "^1.9.3"
