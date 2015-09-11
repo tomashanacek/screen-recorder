@@ -9,9 +9,7 @@ Nan::Persistent<v8::Function> ScreenRecorderWrapper::constructor;
 
 ScreenRecorderWrapper::ScreenRecorderWrapper(): pImpl_(new Impl) {}
 
-ScreenRecorderWrapper::~ScreenRecorderWrapper() {
-  [((Impl*)pImpl_)->recorder release];
-}
+ScreenRecorderWrapper::~ScreenRecorderWrapper() {}
 
 void ScreenRecorderWrapper::Init(v8::Local<v8::Object> exports) {
   Nan::HandleScope scope;
