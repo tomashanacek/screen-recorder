@@ -10,11 +10,15 @@
     "recording",
     "osx"
   ],
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
   "dependencies": {
-    "nodobjc": "sakisakira/NodObjC#sakira-dev"
+    "nan": "^2.0.9",
+    "bindings": "^1.2.1"
   },
   "devDependencies": {
-    "coffee-script": "^1.9.3"
+    "node-gyp": "^3.0.1"
   },
   "repository": {
     "type": "git",
@@ -24,9 +28,5 @@
     "url": "https://github.com/tomashanacek/screen-recorder/issues"
   },
   "homepage": "https://github.com/tomashanacek/screen-recorder",
-  "scripts": {
-    "prepublish": "coffee -c index.coffee",
-    "postpublish": "rm index.js",
-    "test": "coffee test.coffee"
-  }
+  "gypfile": true
 }

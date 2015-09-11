@@ -1,5 +1,5 @@
 .DS_Store
 npm-debug.log
 node_modules
-*.js
+build/
 test.mp4

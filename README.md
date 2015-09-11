@@ -11,7 +11,7 @@ npm install screen-recorder
 ## Example
 
 ```
-var ScreenRecorder = require('screen-recorder')
+var ScreenRecorder = require('screen-recorder').ScreenRecorder
 var path = require('path')
 
 var movie = new ScreenRecorder(path.resolve(__dirname, 'test.mp4'))
