@@ -1,6 +1,6 @@
 {
   "name": "screen-recorder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "OS X screen recording library for Node",
   "main": "index.js",
   "author": "Tomas Hanacek <tomas.hanacek1@gmail.com>",
