@@ -64,6 +64,11 @@
     [_input setCropRect:cropRect];
 }
 
+- (void)setFrameRate:(int)framerRate
+{
+    [_input setMinFrameDuration:CMTimeMake(1, (int32_t)framerRate)];
+}
+
 - (void)start
 {
     [_session startRunning];

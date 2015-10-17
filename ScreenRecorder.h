@@ -16,5 +16,6 @@
 - (void)setCapturesMouseClicks:(BOOL)capturesMouseClicks;
 - (void)setCapturesCursor:(BOOL)capturesCursor;
 - (void)setCropRect:(CGRect)cropRect;
+- (void)setFrameRate:(int)framerRate;
 
 @end

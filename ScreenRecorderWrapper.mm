@@ -25,6 +25,7 @@ void ScreenRecorderWrapper::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "setCapturesMouseClicks", SetCapturesMouseClicks);
   Nan::SetPrototypeMethod(tpl, "setCapturesCursor", SetCapturesCursor);
   Nan::SetPrototypeMethod(tpl, "setCropRect", SetCropRect);
+  Nan::SetPrototypeMethod(tpl, "setFrameRate", SetFrameRate);
 
   constructor.Reset(tpl->GetFunction());
   exports->Set(Nan::New("ScreenRecorder").ToLocalChecked(), tpl->GetFunction());
@@ -93,4 +94,16 @@ void ScreenRecorderWrapper::SetCropRect(const Nan::FunctionCallbackInfo<v8::Valu
 
   ScreenRecorderWrapper *obj = ObjectWrap::Unwrap<ScreenRecorderWrapper>(info.Holder());
   [((Impl*)obj->pImpl_)->recorder setCropRect:CGRectMake(x, y, width, height)];
+}
+
+void ScreenRecorderWrapper::SetFrameRate(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  if (info.Length() < 1) {
+    Nan::ThrowTypeError("Wrong number of arguments");
+    return;
+  }
+
+  int frameRate = info[0]->NumberValue();
+
+  ScreenRecorderWrapper *obj = ObjectWrap::Unwrap<ScreenRecorderWrapper>(info.Holder());
+  [((Impl*)obj->pImpl_)->recorder setFrameRate:frameRate];
 }
