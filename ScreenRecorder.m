@@ -23,14 +23,12 @@
     void (^_completion)(BOOL);
 }
 
-- (id)initWithPath:(NSString *)outputPath
+- (id)initWithPath:(NSString *)outputPath andDisplayId:(CGDirectDisplayID)displayId
 {
     self = [super init];
 
     if (self) {
         _session = [[AVCaptureSession alloc] init];
-
-        CGDirectDisplayID displayId = CGMainDisplayID();
 
         _input = [[AVCaptureScreenInput alloc] initWithDisplayID:displayId];
         _output = [[AVCaptureMovieFileOutput alloc] init];

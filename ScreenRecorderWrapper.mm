@@ -34,7 +34,9 @@ void ScreenRecorderWrapper::Init(v8::Local<v8::Object> exports) {
 void ScreenRecorderWrapper::New(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   if (info.IsConstructCall()) {
 
-    if (info.Length() < 1) {
+    int len = info.Length();
+
+    if (len < 1) {
       Nan::ThrowTypeError("Wrong number of arguments");
       return;
     }
@@ -44,10 +46,18 @@ void ScreenRecorderWrapper::New(const Nan::FunctionCallbackInfo<v8::Value>& info
       return;
     }
 
+    CGDirectDisplayID displayId;
+
+    if (len > 1 && info[1]->IsNumber()) {
+      displayId = info[1]->NumberValue();
+    } else {
+      displayId = CGMainDisplayID();
+    }
+
     v8::String::Utf8Value utf8(info[0]->ToString());
 
     NSString *outputPath = [NSString stringWithUTF8String:*utf8];
-    ScreenRecorder *recorder = [[ScreenRecorder alloc] initWithPath:outputPath];
+    ScreenRecorder *recorder = [[ScreenRecorder alloc] initWithPath:outputPath andDisplayId:displayId];
 
     ScreenRecorderWrapper *obj = new ScreenRecorderWrapper();
     ((Impl*)obj->pImpl_)->recorder = recorder;

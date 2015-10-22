@@ -10,7 +10,7 @@
 
 @interface ScreenRecorder : NSObject
 
-- (id)initWithPath:(NSString *)outputPath;
+- (id)initWithPath:(NSString *)outputPath andDisplayId:(CGDirectDisplayID)displayId;
 - (void)start;
 - (void)stop;
 - (void)setCapturesMouseClicks:(BOOL)capturesMouseClicks;
