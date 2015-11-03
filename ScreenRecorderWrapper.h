@@ -18,6 +18,7 @@ class ScreenRecorderWrapper : public Nan::ObjectWrap {
   static void SetCapturesCursor(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void SetCropRect(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static void SetFrameRate(const Nan::FunctionCallbackInfo<v8::Value>& info);
+  static void RecordAudio(const Nan::FunctionCallbackInfo<v8::Value>& info);
   static Nan::Persistent<v8::Function> constructor;
   void *pImpl_;
 };

@@ -26,6 +26,7 @@ void ScreenRecorderWrapper::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "setCapturesCursor", SetCapturesCursor);
   Nan::SetPrototypeMethod(tpl, "setCropRect", SetCropRect);
   Nan::SetPrototypeMethod(tpl, "setFrameRate", SetFrameRate);
+  Nan::SetPrototypeMethod(tpl, "recordAudio", RecordAudio);
 
   constructor.Reset(tpl->GetFunction());
   exports->Set(Nan::New("ScreenRecorder").ToLocalChecked(), tpl->GetFunction());
@@ -116,4 +117,9 @@ void ScreenRecorderWrapper::SetFrameRate(const Nan::FunctionCallbackInfo<v8::Val
 
   ScreenRecorderWrapper *obj = ObjectWrap::Unwrap<ScreenRecorderWrapper>(info.Holder());
   [((Impl*)obj->pImpl_)->recorder setFrameRate:frameRate];
+}
+
+void ScreenRecorderWrapper::RecordAudio(const Nan::FunctionCallbackInfo<v8::Value>& info) {
+  ScreenRecorderWrapper *obj = ObjectWrap::Unwrap<ScreenRecorderWrapper>(info.Holder());
+  [((Impl*)obj->pImpl_)->recorder recordAudio];
 }

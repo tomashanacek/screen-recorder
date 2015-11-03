@@ -13,6 +13,7 @@
 - (id)initWithPath:(NSString *)outputPath andDisplayId:(CGDirectDisplayID)displayId;
 - (void)start;
 - (void)stop;
+- (void)recordAudio;
 - (void)setCapturesMouseClicks:(BOOL)capturesMouseClicks;
 - (void)setCapturesCursor:(BOOL)capturesCursor;
 - (void)setCropRect:(CGRect)cropRect;

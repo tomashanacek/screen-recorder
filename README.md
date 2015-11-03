@@ -18,6 +18,7 @@ var movie = new ScreenRecorder(path.resolve(__dirname, 'test.mp4')) // [, displa
 movie.setCapturesMouseClicks(true)
 movie.setCropRect(0, 0, 500, 500)
 movie.setFrameRate(30) // default is 15
+movie.recordAudio()
 movie.start()
 
 setTimeout(function() {

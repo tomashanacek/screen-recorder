@@ -18,6 +18,7 @@
 @implementation ScreenRecorder {
     AVCaptureSession *_session;
     AVCaptureScreenInput *_input;
+    AVCaptureDeviceInput *_audioInput;
     AVCaptureMovieFileOutput *_output;
     NSURL *_outputPath;
     void (^_completion)(BOOL);
@@ -45,6 +46,18 @@
     }
 
     return self;
+}
+
+- (void)recordAudio
+{
+    if (!_audioInput) {
+        AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+        _audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:nil];
+
+        if ([_session canAddInput:_audioInput]) {
+            [_session addInput:_audioInput];
+        }
+    }
 }
 
 - (void)setCapturesMouseClicks:(BOOL)capturesMouseClicks
